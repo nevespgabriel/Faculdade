@@ -59,7 +59,7 @@ const index = () => {
 const update = () => {
     if(index()){
         const id = parseInt(prompt("Digite o id do elemento que deseja alterar: ").trim());
-        const indice = show(id);
+        const indice = db.findIndex((el) => el.id == id);
         if(indice){
             db[indice] = modelo(id);
         }
@@ -69,7 +69,7 @@ const update = () => {
 const destroy = () => {
     if(index()){
         const id = parseInt(prompt("Digite o id do elemento que deseja alterar: ").trim());
-        const indice = show(id);
+        const indice = db.findIndex((el) => el.id == id);
         if(indice){
             db.splice(indice, 1);
             console.log("Elemento excluído com sucesso.");
