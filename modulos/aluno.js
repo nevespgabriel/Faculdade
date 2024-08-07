@@ -10,7 +10,7 @@ const modelo = (id = proximoId) => {
     } else{
         console.log("Cadastre um curso antes.");
     }
-    if(nome != "" && horasTotais > 0 && curso.show(idCurso)){
+    if(nome != "" && curso.show(idCurso)){
         console.log("Cadastro realizado com sucesso!");
         return {
             id, 

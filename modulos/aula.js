@@ -1,0 +1,82 @@
+const prompt = require("prompt-sync")();
+const db = [];
+const professor = require("./professor.js");
+const materia = require("./materia.js");
+const sala = require("./sala.js");
+let proximoId = 1;
+
+const modelo = (id = proximoId) => {
+    if(professor.index()){
+        const idProfessor = parseInt(prompt("Digite o id do professor: "));
+    } else{
+        console.log("Cadastre um professor antes.");
+    }
+    if(materia.index()){
+        const idMateria = parseInt(prompt("Digite o id da matéria: "));
+    } else{
+        console.log("Cadastre uma matéria antes.");
+    }
+    if(sala.index()){
+        const idSala = parseInt(prompt("Digite o id da sala: "));
+    } else{
+        console.log("Cadastre uma sala antes.");
+    }
+    if(professor.show(idProfessor) && materia.show(idMateria) && sala.show(idSala)){
+        console.log("Cadastro realizado com sucesso!");
+        return {
+            id, 
+            idProfessor,
+            idMateria,
+            idSala
+        }
+    }
+    console.log("ERRO! Dados inválidos")
+}
+
+const show = (id) => db.find((el) => el.id == id);
+
+const store = () => {
+    const el = modelo();
+    if(el){
+        proximoId++;
+        db.push(el);
+    }
+}
+
+const index = () => {
+    if(db.length == 0){
+        console.log("Nenhum cadastro realizado.");
+        return false;
+    }
+    db.forEach(aluno => console.log(aluno));
+    return true;
+}
+
+const update = () => {
+    if(index()){
+        const id = parseInt(prompt("Digite o id do elemento que deseja alterar: ").trim());
+        const indice = show(id);
+        if(indice){
+            db[indice] = modelo(id);
+        }
+    }
+}
+
+const destroy = () => {
+    if(index()){
+        const id = parseInt(prompt("Digite o id do elemento que deseja alterar: ").trim());
+        const indice = show(id);
+        if(indice){
+            db.splice(indice, 1);
+            console.log("Elemento excluído com sucesso.");
+        }
+    }
+}
+
+module.exports = {
+    store,
+    index,
+    show,
+    update,
+    destroy
+}
