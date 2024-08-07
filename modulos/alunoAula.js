@@ -12,7 +12,10 @@ const modelo = (id = proximoId) => {
     } else{
         console.log("Cadastre uma aula antes.");
     }
-    const idMateriaAula = aula.show(idAula).idMateria;
+    let idMateriaAula;
+    if(aula.show(idAula)){
+        idMateriaAula = aula.show(idAula).idMateria;
+    }
     let idAluno
     if(aluno.index()){
         idAluno = parseInt(prompt("Digite o id do aluno: "));
