@@ -61,6 +61,7 @@ const destroy = () => {
 module.exports = {
     store,
     index,
+    show,
     update,
     destroy
 }
