@@ -5,8 +5,9 @@ let proximoId = 1;
 
 const modelo = (id = proximoId) => {
     const nome = prompt("Digite o nome: ").trim();
+    let idCurso
     if(curso.index()){
-        const idCurso = parseInt(prompt("Digite o id do curso: "));
+        idCurso = parseInt(prompt("Digite o id do curso: "));
     } else{
         console.log("Cadastre um curso antes.");
     }

@@ -6,8 +6,9 @@ let proximoId = 1;
 const modelo = (id = proximoId) => {
     const nome = prompt("Digite o nome: ").trim();
     const horasTotais = Number(prompt("Digite a quantidade de horas totais: ").trim());
+    let idTurno
     if(turno.index()){
-        const idTurno = parseInt(prompt("Digite o id do turno: "));
+        idTurno = parseInt(prompt("Digite o id do turno: "));
     } else{
         console.log("Cadastre um turno antes.");
     }

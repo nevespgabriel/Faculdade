@@ -6,14 +6,16 @@ const materia = require("./materia.js");
 let proximoId = 1;
 
 const modelo = (id = proximoId) => {
+    let idAula;
     if(aula.index()){
-        const idAula = parseInt(prompt("Digite o id da aula: "));
+        idAula = parseInt(prompt("Digite o id da aula: "));
     } else{
         console.log("Cadastre uma aula antes.");
     }
     const idMateriaAula = aula.show(idAula).idMateria;
+    let idAluno
     if(aluno.index()){
-        const idAluno = parseInt(prompt("Digite o id do aluno: "));
+        idAluno = parseInt(prompt("Digite o id do aluno: "));
     } else{
         console.log("Cadastre um aluno antes.");
     }

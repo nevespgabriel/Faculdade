@@ -3,21 +3,25 @@ const db = [];
 const professor = require("./professor.js");
 const materia = require("./materia.js");
 const sala = require("./sala.js");
+const alunoAula = require("./alunoAula.js");
 let proximoId = 1;
 
 const modelo = (id = proximoId) => {
+    let idProfessor;
     if(professor.index()){
-        const idProfessor = parseInt(prompt("Digite o id do professor: "));
+        idProfessor = parseInt(prompt("Digite o id do professor: "));
     } else{
         console.log("Cadastre um professor antes.");
     }
+    let idMateria;
     if(materia.index()){
-        const idMateria = parseInt(prompt("Digite o id da matéria: "));
+        idMateria = parseInt(prompt("Digite o id da matéria: "));
     } else{
         console.log("Cadastre uma matéria antes.");
     }
+    let idSala
     if(sala.index()){
-        const idSala = parseInt(prompt("Digite o id da sala: "));
+        idSala = parseInt(prompt("Digite o id da sala: "));
     } else{
         console.log("Cadastre uma sala antes.");
     }
