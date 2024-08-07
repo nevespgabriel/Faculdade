@@ -41,9 +41,12 @@ const update = () => {
     if(index()){
         const id = parseInt(prompt("Digite o id do elemento que deseja alterar: ").trim());
         const indice = db.findIndex((el) => el.id == id);
-        if(indice){
-            db[indice] = modelo(id);
-        }
+        if(indice != -1){
+            const novo = modelo(id);
+            if(novo){
+                db[indice] = novo;
+            }   
+        } 
     }
 }
 
